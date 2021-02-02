@@ -1,9 +1,13 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const userApi = require("./user.api.js");
+router.use("/users", userApi);
+
+const authApi = require("./auth.api.js");
+router.use("/auth", authApi);
+
+const blogApi = require("./blog.api.js");
+router.use("/blog", blogApi);
 
 module.exports = router;
